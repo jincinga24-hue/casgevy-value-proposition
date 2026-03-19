@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workwear &amp; PPE Market Research — Week 3</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #1c2333;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-2: #3fb950;
+      --accent-3: #d2a8ff;
+      --accent-4: #f78166;
+      --accent-5: #ff7b72;
+      --yellow: #e3b341;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(88,166,255,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(63,185,80,0.06) 0%, transparent 50%);
+      animation: shimmer 20s ease-in-out infinite alternate;
+    }
+    @keyframes shimmer { 0% { transform: translateX(-5%); } 100% { transform: translateX(5%); } }
+    .hero > * { position: relative; z-index: 1; }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(88,166,255,0.15);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(88,166,255,0.25);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, #58a6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+
+    /* ── Key Stats Row ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: -40px auto 0;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stat-card:nth-child(1) .number { color: var(--accent); }
+    .stat-card:nth-child(2) .number { color: var(--accent-2); }
+    .stat-card:nth-child(3) .number { color: var(--accent-3); }
+    .stat-card:nth-child(4) .number { color: var(--accent-4); }
+    .stat-card:nth-child(5) .number { color: var(--yellow); }
+
+    /* ── Navigation ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 14px 20px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Main Content ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* ── Section ── */
+    section {
+      margin-bottom: 64px;
+      scroll-margin-top: 60px;
+    }
+    section > h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    section > h2 .icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    section > .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--text);
+    }
+
+    /* ── Cards Grid ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .card p, .card li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .card ul { padding-left: 18px; }
+    .card li { margin-bottom: 4px; }
+    .card .tag {
+      display: inline-block;
+      background: rgba(88,166,255,0.12);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .card .tag.green { background: rgba(63,185,80,0.12); color: var(--accent-2); }
+    .card .tag.purple { background: rgba(210,168,255,0.12); color: var(--accent-3); }
+    .card .tag.orange { background: rgba(247,129,102,0.12); color: var(--accent-4); }
+    .card .tag.red { background: rgba(255,123,114,0.12); color: var(--accent-5); }
+    .card .tag.yellow { background: rgba(227,179,65,0.12); color: var(--yellow); }
+
+    /* ── Tables ── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    th {
+      background: var(--surface-2);
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 16px;
+      white-space: nowrap;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+    td {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(88,166,255,0.03); }
+
+    /* ── Landscape Map ── */
+    .landscape {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      position: relative;
+      min-height: 420px;
+      margin: 24px 0;
+    }
+    .landscape .axis-label {
+      position: absolute;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+    .landscape .axis-label.top { top: 12px; left: 50%; transform: translateX(-50%); }
+    .landscape .axis-label.bottom { bottom: 12px; left: 50%; transform: translateX(-50%); }
+    .landscape .axis-label.left { left: 12px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+    .landscape .axis-label.right { right: 12px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+    .landscape .cross-h, .landscape .cross-v {
+      position: absolute;
+      background: var(--border);
+    }
+    .landscape .cross-h { width: 80%; height: 1px; top: 50%; left: 10%; }
+    .landscape .cross-v { width: 1px; height: 80%; left: 50%; top: 10%; }
+    .landscape .company {
+      position: absolute;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .landscape .company:hover {
+      transform: scale(1.1);
+      border-color: var(--accent);
+      z-index: 10;
+    }
+
+    /* ── Problem Statements ── */
+    .problem-statement {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 24px 28px;
+      margin: 16px 0;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .problem-statement.medium { border-left-color: var(--accent-3); }
+    .problem-statement.broad { border-left-color: var(--accent-4); }
+    .problem-statement .ps-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .problem-statement .ps-best {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* ── Bullets ── */
+    ul.clean { list-style: none; padding: 0; }
+    ul.clean li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(48,54,61,0.5);
+    }
+    ul.clean li:last-child { border-bottom: none; }
+    ul.clean li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    ul.clean li strong { color: var(--text); }
+
+    /* ── Callout ── */
+    .callout {
+      background: rgba(88,166,255,0.08);
+      border: 1px solid rgba(88,166,255,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      font-size: 0.9rem;
+    }
+    .callout.warning {
+      background: rgba(227,179,65,0.08);
+      border-color: rgba(227,179,65,0.2);
+    }
+    .callout.danger {
+      background: rgba(255,123,114,0.08);
+      border-color: rgba(255,123,114,0.2);
+    }
+    .callout strong { color: var(--text); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .cards { grid-template-columns: 1fr; }
+      .landscape { min-height: 360px; padding: 30px 20px; }
+      .landscape .company { font-size: 0.68rem; padding: 4px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="badge">Week 3 — Industry &amp; Company Analysis</div>
+    <h1>Workwear &amp; PPE<br>Market Research</h1>
+    <p>Deep research on the $82B+ global workwear and PPE industry: market sizing, competitive landscape, customer segments, and opportunity framing.</p>
+  </div>
+
+  <!-- ── Key Stats ── -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="number">$82.5B</div>
+      <div class="label">Global PPE Market (2025)</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">$19.2B</div>
+      <div class="label">Workwear Market (2025)</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">340M</div>
+      <div class="label">Workplace Injuries / Year</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">60%</div>
+      <div class="label">PPE Compliance Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">&lt;1%</div>
+      <div class="label">Workwear Recycled</div>
+    </div>
+  </div>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#industry">Industry Overview</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#customers">Customer Segments</a>
+      <a href="#problems">Problem Statement</a>
+      <a href="#opportunities">Opportunities</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- ════════════════════════════════════════════
+         SECTION 1: Industry Overview
+         ════════════════════════════════════════════ -->
+    <section id="industry">
+      <h2><span class="icon" style="background:rgba(88,166,255,0.15);color:var(--accent)">1</span> Industry Overview</h2>
+      <p class="subtitle">Global market sizing, segments, drivers, and emerging trends</p>
+
+      <h3>Market Size &amp; Growth</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Market</th><th>2025</th><th>Projected</th><th>CAGR</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>PPE (Total)</strong></td><td>$82.54B</td><td>$129.18B by 2034</td><td>4.60%</td></tr>
+            <tr><td><strong>Workwear (Apparel)</strong></td><td>$19.20B</td><td>$28.08B by 2033</td><td>4.90%</td></tr>
+            <tr><td>Flame-Resistant</td><td>$4.20B</td><td>$6.45B by 2032</td><td>8.10%</td></tr>
+            <tr><td>Hi-Vis Clothing</td><td>~$1.7B</td><td>$2.10B by 2027</td><td>~6%</td></tr>
+            <tr><td>Industrial Protective</td><td>—</td><td>Growing through 2034</td><td>7.80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Key Product Segments</h3>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">28%+ Share</span>
+          <h4>Hand Protection</h4>
+          <p>Dominant PPE segment. Cut-resistant gloves growing 20% in glass industry. Chemical gloves driven by pharma/agriculture.</p>
+        </div>
+        <div class="card">
+          <span class="tag green">74.67% of Workwear</span>
+          <h4>Protective Clothing</h4>
+          <p>Largest sub-segment: uniforms, coveralls, FR apparel, hi-vis. FR is the fastest-growing apparel type at 8.1% CAGR.</p>
+        </div>
+        <div class="card">
+          <span class="tag purple">Post-COVID Baseline</span>
+          <h4>Respiratory Protection</h4>
+          <p>Sustained demand from COVID-era awareness. N95 market mature but industrial respiratory growing with silica/dust regulations.</p>
+        </div>
+        <div class="card">
+          <span class="tag orange">Fastest Growing</span>
+          <h4>Fall Protection</h4>
+          <p>Fastest-growing PPE category in construction. Infrastructure spending and height-work regulations driving adoption.</p>
+        </div>
+      </div>
+
+      <h3>Industry Drivers</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Regulatory Pressure</h4>
+          <ul>
+            <li>OSHA fines up to $165K+ per violation</li>
+            <li>EU PPE Regulation 2016/425 raising standards</li>
+            <li>ISO 45001 adoption driving procurement</li>
+            <li>State mandates (CA heat, NY scaffold law)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Workplace Safety Trends</h4>
+          <ul>
+            <li>Post-COVID heightened safety awareness</li>
+            <li>ESG reporting requiring safety metrics</li>
+            <li>Insurance incentivizing compliance</li>
+            <li>Aging workforce needs ergonomic PPE</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Sustainability Push</h4>
+          <ul>
+            <li>Circular economy pressure from ESG</li>
+            <li>Recycled-material product lines emerging</li>
+            <li>Take-back programs (early stage)</li>
+            <li>Younger workers demanding green options</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Emerging Trends</h3>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">15%+ CAGR</span>
+          <h4>Smart PPE &amp; Wearables</h4>
+          <ul>
+            <li>Sensor-embedded hard hats (fatigue, impact, GPS)</li>
+            <li>Biometric vests (heart rate, temperature)</li>
+            <li>AR safety glasses</li>
+            <li>Connected lone worker devices</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag green">Proven Model</span>
+          <h4>Direct-to-Worker (DTC)</h4>
+          <ul>
+            <li>FIGS proved it: $500M+ in medical scrubs</li>
+            <li>Truewerk: construction-focused DTC</li>
+            <li>Dovetail: women's workwear DTC</li>
+            <li>Amazon Business disrupting distribution</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag purple">Differentiation</span>
+          <h4>Sustainable Materials</h4>
+          <ul>
+            <li>Recycled polyester/nylon workwear</li>
+            <li>Bio-based FR treatments</li>
+            <li>Biodegradable disposable PPE</li>
+            <li>Carbon footprint labeling</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Regional Breakdown</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Region</th><th>Share</th><th>Key Dynamics</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Asia-Pacific</strong></td><td>44.67%</td><td>Manufacturing growth in India, China, SE Asia; largest production base</td></tr>
+            <tr><td><strong>North America</strong></td><td>40%+</td><td>Mature, high compliance; $26.7B+ workwear; Cintas-UniFirst merger</td></tr>
+            <tr><td><strong>Europe</strong></td><td>~12%</td><td>EU PPE Regulation raising floor; sustainability regs; union influence</td></tr>
+            <tr><td><strong>Rest of World</strong></td><td>~3%</td><td>Middle East oil &amp; gas; Africa mining; LatAm construction boom</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 2: Competitors
+         ════════════════════════════════════════════ -->
+    <section id="competitors">
+      <h2><span class="icon" style="background:rgba(63,185,80,0.15);color:var(--accent-2)">2</span> Competitive Analysis</h2>
+      <p class="subtitle">10 major players profiled across rental, manufacturing, and retail models</p>
+
+      <h3>Major Players</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Company</th><th>Category</th><th>Revenue</th><th>Model</th><th>Focus</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Cintas</strong></td><td>Rental/Service</td><td>~$9.6B</td><td>B2B Rental + Purchase</td><td>Uniform rental, facility services</td></tr>
+            <tr><td><strong>UniFirst</strong></td><td>Rental/Service</td><td>~$2.4B</td><td>B2B Rental</td><td>Uniform rental (being acquired)</td></tr>
+            <tr><td><strong>Vestis</strong></td><td>Rental/Service</td><td>~$2.8B</td><td>B2B Rental</td><td>Uniforms (ex-Aramark, spun off 2023)</td></tr>
+            <tr><td><strong>Honeywell</strong></td><td>PPE Mfg</td><td>~$5B+ safety</td><td>B2B Distributor</td><td>Respiratory, fall, head, hand</td></tr>
+            <tr><td><strong>3M</strong></td><td>PPE Mfg</td><td>~$4B+ safety</td><td>B2B Distributor</td><td>N95s, hearing, eye, reflective</td></tr>
+            <tr><td><strong>DuPont</strong></td><td>PPE Materials</td><td>~$1.5B protect</td><td>B2B/OEM</td><td>Tyvek, Kevlar, Nomex</td></tr>
+            <tr><td><strong>Ansell</strong></td><td>PPE Mfg</td><td>~$1.6B</td><td>B2B Distributor</td><td>Gloves (industrial &amp; medical)</td></tr>
+            <tr><td><strong>MSA Safety</strong></td><td>PPE Mfg</td><td>~$1.8B</td><td>B2B Distributor</td><td>Hard hats, SCBA, gas detection</td></tr>
+            <tr><td><strong>Carhartt</strong></td><td>Workwear Brand</td><td>~$1B+ (pvt)</td><td>B2B + B2C</td><td>Durable workwear, FR, outerwear</td></tr>
+            <tr><td><strong>Dickies</strong></td><td>Workwear Brand</td><td>Part of VF Corp</td><td>B2B + B2C</td><td>Value workwear, uniforms</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Competitive Landscape</h3>
+      <div class="landscape">
+        <div class="axis-label top">Premium Pricing</div>
+        <div class="axis-label bottom">Value Pricing</div>
+        <div class="axis-label left">B2B Rental/Service</div>
+        <div class="axis-label right">B2C Retail/DTC</div>
+        <div class="cross-h"></div>
+        <div class="cross-v"></div>
+        <!-- Quadrant 1: Premium + B2B -->
+        <div class="company" style="top:18%;left:22%;color:var(--accent)">Honeywell</div>
+        <div class="company" style="top:25%;left:42%;color:var(--accent)">3M</div>
+        <div class="company" style="top:18%;left:35%;color:var(--accent-3)">DuPont</div>
+        <div class="company" style="top:30%;left:28%;color:var(--accent-2)">MSA Safety</div>
+        <!-- Quadrant 2: Premium + B2C -->
+        <div class="company" style="top:22%;left:68%;color:var(--accent-4)">Carhartt</div>
+        <div class="company" style="top:30%;left:72%;color:var(--accent-2)">Truewerk</div>
+        <div class="company" style="top:36%;left:78%;color:var(--accent-3)">FIGS</div>
+        <!-- Quadrant 3: Value + B2B -->
+        <div class="company" style="top:58%;left:18%;color:var(--yellow)">Cintas</div>
+        <div class="company" style="top:65%;left:28%;color:var(--yellow)">UniFirst</div>
+        <div class="company" style="top:72%;left:22%;color:var(--text-muted)">Vestis</div>
+        <div class="company" style="top:60%;left:40%;color:var(--text-muted)">Ansell</div>
+        <!-- Quadrant 4: Value + B2C -->
+        <div class="company" style="top:68%;left:65%;color:var(--accent-4)">Dickies</div>
+        <div class="company" style="top:75%;left:72%;color:var(--text-muted)">Amazon Biz</div>
+        <div class="company" style="top:62%;left:78%;color:var(--text-muted)">Grainger</div>
+      </div>
+
+      <h3>Business Model Comparison</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Players</th><th>Pros</th><th>Cons</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Managed Rental</strong></td><td>Cintas, UniFirst, Vestis</td><td>Recurring revenue, lock-in, full service</td><td>Rigid, low customization, worker has no choice</td></tr>
+            <tr><td><strong>PPE Manufacturer</strong></td><td>Honeywell, 3M, DuPont, Ansell, MSA</td><td>Innovation, IP moats, margins</td><td>No end-user relationship</td></tr>
+            <tr><td><strong>Brand / Retail</strong></td><td>Carhartt, Dickies, Truewerk</td><td>Brand loyalty, worker choice, DTC</td><td>No managed services</td></tr>
+            <tr><td><strong>Distributor</strong></td><td>Grainger, Fastenal, Amazon Business</td><td>Wide selection, convenience</td><td>No differentiation, margin pressure</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Recent M&amp;A &amp; Strategic Moves</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Deal</th><th>Value</th><th>Significance</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2025</td><td><strong>Cintas acquires UniFirst</strong></td><td>$5.5B</td><td>Near-monopoly in US uniform rental</td></tr>
+            <tr><td>2023</td><td>Aramark spins off Vestis</td><td>—</td><td>Independent workwear co (struggling)</td></tr>
+            <tr><td>2024</td><td>3M spins off healthcare</td><td>—</td><td>Refocuses on safety &amp; industrial</td></tr>
+            <tr><td>2024</td><td>VF Corp explores Dickies sale</td><td>TBD</td><td>Financial restructuring</td></tr>
+            <tr><td>2024</td><td>3M earplug settlement</td><td>$6B+</td><td>Major reputational hit</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 3: Customer Segments
+         ════════════════════════════════════════════ -->
+    <section id="customers">
+      <h2><span class="icon" style="background:rgba(210,168,255,0.15);color:var(--accent-3)">3</span> Customer Segments</h2>
+      <p class="subtitle">Who buys workwear &amp; PPE, how they decide, and where the gaps are</p>
+
+      <h3>End-User Industries</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Industry</th><th>PPE Spend Share</th><th>Key Needs</th><th>Dynamics</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Construction</strong></td><td>23.75% workwear</td><td>Hi-vis, hard hats, fall, FR, gloves</td><td>Largest consumer; infra spending growth</td></tr>
+            <tr><td><strong>Healthcare</strong></td><td>32.78% PPE</td><td>Gloves, gowns, masks, respirators</td><td>Post-COVID permanent demand</td></tr>
+            <tr><td><strong>Manufacturing</strong></td><td>18.3% PPE</td><td>Cut-resistant, eye, hearing, uniforms</td><td>Automation increasing per-worker spend</td></tr>
+            <tr><td><strong>Oil &amp; Gas</strong></td><td>High-value</td><td>FR, respiratory, gas detection</td><td>Premium spend; cyclical</td></tr>
+            <tr><td><strong>Utilities</strong></td><td>High-value</td><td>Arc-rated FR, insulated gloves</td><td>NFPA 70E compliance; aging infra</td></tr>
+            <tr><td><strong>Warehousing</strong></td><td>Rapidly growing</td><td>Hi-vis, gloves, safety footwear</td><td>E-commerce logistics boom</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Buyer Personas</h3>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">High Influence</span>
+          <h4>Safety Manager / EHS Director</h4>
+          <ul>
+            <li><strong>Decides:</strong> PPE standards, compliance</li>
+            <li><strong>Criteria:</strong> Compliance first, then worker acceptance, then cost</li>
+            <li><strong>Pain:</strong> Tracking compliance across sites, proving ROI</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag green">Budget Control</span>
+          <h4>Procurement Manager</h4>
+          <ul>
+            <li><strong>Decides:</strong> Vendors, contracts, spend</li>
+            <li><strong>Criteria:</strong> Cost, terms, reliability, consolidation</li>
+            <li><strong>Pain:</strong> Too many vendors, unpredictable spend</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag purple">End User</span>
+          <h4>Individual Worker</h4>
+          <ul>
+            <li><strong>Decides:</strong> Nothing (enterprise) or everything (gig)</li>
+            <li><strong>Criteria:</strong> Comfort, fit, durability, style</li>
+            <li><strong>Pain:</strong> Ill-fitting gear, discomfort, no choice</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag orange">All Decisions</span>
+          <h4>Small Business Owner</h4>
+          <ul>
+            <li><strong>Decides:</strong> Everything for 1-50 workers</li>
+            <li><strong>Criteria:</strong> Price, convenience, "just tell me what I need"</li>
+            <li><strong>Pain:</strong> Overwhelmed by regs, no safety staff</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Segmentation by Company Size</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Segment</th><th>Employees</th><th>Annual Spend</th><th>Buying Model</th><th>Served?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Enterprise</strong></td><td>1,000+</td><td>$500K–$50M+</td><td>Managed rental / enterprise procurement</td><td style="color:var(--accent-2)">Well served</td></tr>
+            <tr><td><strong>Mid-Market</strong></td><td>100–999</td><td>$50K–$500K</td><td>Mix rental + purchase</td><td style="color:var(--yellow)">Moderate</td></tr>
+            <tr><td><strong>SMB</strong></td><td>10–99</td><td>$5K–$50K</td><td>Distributors, online, supply house</td><td style="color:var(--accent-5)">Underserved</td></tr>
+            <tr><td><strong>Micro / Gig</strong></td><td>&lt;10</td><td>$200–$5K</td><td>Retail, Amazon, DTC</td><td style="color:var(--accent-5)">Significantly underserved</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warning">
+        <strong>Key Insight:</strong> SMBs and gig workers represent the biggest gap in the market — too small for managed rental (Cintas), too complex for undifferentiated retail (Amazon). One OSHA fine ($165K+) can be business-threatening for a small contractor.
+      </div>
+
+      <h3>Fastest-Growing Segments</h3>
+      <div class="cards">
+        <div class="card">
+          <span class="tag green">1.5M+ Workers</span>
+          <h4>Warehousing &amp; Logistics</h4>
+          <p>E-commerce creating millions of workers needing gloves, hi-vis, footwear. Amazon alone: 1.5M+ warehouse workers.</p>
+        </div>
+        <div class="card">
+          <span class="tag purple">New PPE Categories</span>
+          <h4>Renewable Energy</h4>
+          <p>Solar, wind, battery storage creating new needs: arc flash, fall protection for wind, 1.5M projected US jobs by 2030.</p>
+        </div>
+        <div class="card">
+          <span class="tag orange">70% Underserved</span>
+          <h4>Women in Trades</h4>
+          <p>Fastest-growing demo in construction and manufacturing. 70% lack properly fitting PPE. Massive unmet need.</p>
+        </div>
+        <div class="card">
+          <span class="tag">73M+ Freelancers</span>
+          <h4>Gig / Independent Workers</h4>
+          <p>73M+ US freelancers, many in construction, delivery, trades. Self-purchase market with zero managed solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 4: Problem Statement
+         ════════════════════════════════════════════ -->
+    <section id="problems">
+      <h2><span class="icon" style="background:rgba(247,129,102,0.15);color:var(--accent-4)">4</span> Problem Statement</h2>
+      <p class="subtitle">Quantified pain points and three problem statement options from narrow to broad</p>
+
+      <h3>Quantifying the Pain</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Data</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Global workplace injuries</td><td><strong>340 million / year</strong></td><td>ILO</td></tr>
+            <tr><td>US workplace injuries</td><td><strong>2.5M cases (2024)</strong></td><td>BLS</td></tr>
+            <tr><td>Women injured by ill-fitting PPE</td><td><strong>1 in 5</strong></td><td>TUC Survey</td></tr>
+            <tr><td>Worker PPE compliance rate</td><td><strong>~60%</strong></td><td>NSC</td></tr>
+            <tr><td>OSHA max penalty / violation</td><td><strong>$165,514</strong></td><td>OSHA</td></tr>
+            <tr><td>Workwear recycling rate</td><td><strong>&lt;1%</strong></td><td>Ellen MacArthur Foundation</td></tr>
+            <tr><td>Textile waste annually</td><td><strong>92 million tons</strong></td><td>Ellen MacArthur Foundation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Why Existing Solutions Fall Short</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Managed Rental (Cintas, UniFirst)</h4>
+          <p>One-size-fits-most, rigid 3-5yr contracts, no lifecycle data, limited customization. Just merged for $5.5B — consolidating a stale model.</p>
+        </div>
+        <div class="card">
+          <h4>Distributors (Grainger, Amazon)</h4>
+          <p>Wide selection but transactional. No compliance tracking, no fit guidance, no lifecycle management.</p>
+        </div>
+        <div class="card">
+          <h4>DTC Startups (Truewerk, FIGS)</h4>
+          <p>Worker-centric design but limited scale, narrow industry focus, no enterprise compliance tools.</p>
+        </div>
+      </div>
+
+      <div class="callout danger">
+        <strong>Common failure across all:</strong> No integrated platform connecting fit &rarr; procurement &rarr; compliance &rarr; disposal. Worker voice is absent. Sustainability is bolted on, not built in. Wear-cycle data is not captured.
+      </div>
+
+      <h3>Problem Statement Options</h3>
+
+      <div class="problem-statement">
+        <div class="ps-label" style="color:var(--accent)">Option A: Narrow — Inclusive Sizing &amp; Fit</div>
+        70% of women and a significant share of non-average-sized workers lack access to properly fitting PPE, leading to 1-in-5 experiencing injuries from ill-fitting equipment. The workwear industry designs for a default male body, leaving millions of workers underprotected and non-compliant — not by choice, but by exclusion.
+        <div class="ps-best">Best for: A focused DTC or B2B brand solving the fit/inclusivity gap first.</div>
+      </div>
+
+      <div class="problem-statement medium">
+        <div class="ps-label" style="color:var(--accent-3)">Option B: Medium — Integrated Compliance &amp; Lifecycle Platform</div>
+        Companies spend billions annually on workwear and PPE but lack visibility into fit, condition, compliance, and total cost of ownership. Safety managers juggle spreadsheets, workers wear ill-fitting gear, and 92 million tons of textile waste accumulate — all because procurement, compliance, and lifecycle management remain disconnected silos.
+        <div class="ps-best">Best for: A SaaS/platform play targeting enterprise safety and procurement teams.</div>
+      </div>
+
+      <div class="problem-statement broad">
+        <div class="ps-label" style="color:var(--accent-4)">Option C: Broad — Market Reimagination</div>
+        The $90B+ PPE and workwear market is built on a 50-year-old rental model that optimizes for operator margins, not worker safety or environmental sustainability. With 340 million workplace injuries annually and &lt;1% of workwear recycled, the industry needs a fundamental shift: from commodity uniform distribution to intelligent, inclusive, circular worker protection.
+        <div class="ps-best">Best for: A venture-scale company aiming to disrupt the entire value chain.</div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 5: Opportunities
+         ════════════════════════════════════════════ -->
+    <section id="opportunities">
+      <h2><span class="icon" style="background:rgba(227,179,65,0.15);color:var(--yellow)">5</span> Opportunities &amp; White Space</h2>
+      <p class="subtitle">Underserved segments, unmet needs, and actionable entry points</p>
+
+      <h3>Underserved Segments</h3>
+      <ul class="clean">
+        <li><strong>Women's workwear:</strong> 70% lack properly fitting PPE — massive unmet need</li>
+        <li><strong>SMB market (10-99 employees):</strong> Too small for Cintas, too complex for Amazon — no good managed option</li>
+        <li><strong>Gig / independent workers:</strong> Growing workforce with no employer-provided PPE</li>
+        <li><strong>Extended / inclusive sizing:</strong> Most brands stop at XL or 2XL</li>
+        <li><strong>Climate-adaptive workwear:</strong> Heat stress PPE for outdoor workers in warming climate</li>
+      </ul>
+
+      <h3>Unmet Needs</h3>
+      <ul class="clean">
+        <li><strong>Compliance automation:</strong> No platform connects PPE procurement to OSHA compliance tracking</li>
+        <li><strong>Lifecycle management:</strong> Nobody tracks wear, condition, replacement timing with data</li>
+        <li><strong>Worker input:</strong> Workers have zero say in what they wear — procurement decides</li>
+        <li><strong>Sustainable options:</strong> Almost no circular / recycling programs at scale</li>
+        <li><strong>Fit technology:</strong> No equivalent of "size recommendation engine" for workwear</li>
+      </ul>
+
+      <h3>White Space Opportunities</h3>
+      <div class="cards">
+        <div class="card">
+          <span class="tag orange">DTC Brand</span>
+          <h4>"FIGS for Construction"</h4>
+          <p>Premium direct-to-worker workwear with style + function for trades. FIGS proved this works ($500M+ in medical). Construction is 10x the TAM.</p>
+        </div>
+        <div class="card">
+          <span class="tag purple">SaaS Platform</span>
+          <h4>PPE-as-a-Service</h4>
+          <p>SaaS connecting procurement, compliance tracking, and lifecycle management. Automated reorders, condition monitoring, OSHA dashboards.</p>
+        </div>
+        <div class="card">
+          <span class="tag green">Inclusive Brand</span>
+          <h4>Women-First Workwear</h4>
+          <p>Women-first or body-inclusive workwear line. 70% of women can't find properly fitting PPE — a clear market gap with regulatory tailwind.</p>
+        </div>
+        <div class="card">
+          <span class="tag">IoT + Apparel</span>
+          <h4>Smart Workwear Platform</h4>
+          <p>Embedded sensors in everyday workwear (not just hard hats). Fatigue detection, environmental hazard alerts, compliance auto-tracking.</p>
+        </div>
+      </div>
+
+      <h3>The Ideal Solution</h3>
+      <div class="callout">
+        A next-generation workwear/PPE platform would combine: <strong>data-driven fit</strong> (size recommendation engine), <strong>full lifecycle management</strong> (procurement through recycling), <strong>automated compliance</strong> (real-time OSHA dashboards), <strong>circular sustainability</strong> (take-back + condition-based replacement), and <strong>worker-centric design</strong> (inclusive sizing + worker input in selection).
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 6: Sources
+         ════════════════════════════════════════════ -->
+    <section id="sources">
+      <h2><span class="icon" style="background:rgba(88,166,255,0.15);color:var(--accent)">6</span> Sources</h2>
+      <p class="subtitle">Market research reports, regulatory bodies, and industry data</p>
+
+      <h3>Market Research Reports</h3>
+      <ul class="clean">
+        <li><a href="https://www.fortunebusinessinsights.com/personal-protective-equipment-ppe-market-102015" style="color:var(--accent)">Fortune Business Insights — Global PPE Market</a></li>
+        <li><a href="https://www.grandviewresearch.com/industry-analysis/workwear-market" style="color:var(--accent)">Grand View Research — Workwear Market</a></li>
+        <li><a href="https://www.mordorintelligence.com/industry-reports/industrial-workwear-market" style="color:var(--accent)">Mordor Intelligence — Industrial Workwear</a></li>
+        <li><a href="https://www.gminsights.com/industry-analysis/industrial-protective-clothing-market" style="color:var(--accent)">GM Insights — Industrial Protective Clothing</a></li>
+        <li><a href="https://www.technavio.com/report/protective-workwear-market-industry-analysis" style="color:var(--accent)">Technavio — Protective Workwear</a></li>
+        <li><a href="https://dataintelo.com/report/global-flame-resistant-workwear-market" style="color:var(--accent)">Dataintelo — Flame-Resistant Workwear</a></li>
+        <li><a href="https://straitsresearch.com/report/workwear-market" style="color:var(--accent)">Straits Research — Workwear Market</a></li>
+        <li><a href="https://wifitalents.com/workwear-industry-statistics/" style="color:var(--accent)">WifiTalents — Workwear Industry Statistics 2026</a></li>
+        <li><a href="https://www.fortunebusinessinsights.com/north-america-personal-protective-equipment-market-107121" style="color:var(--accent)">Fortune Business Insights — North America PPE</a></li>
+      </ul>
+
+      <h3>Regulatory &amp; Industry Bodies</h3>
+      <ul class="clean">
+        <li>International Labour Organization (ILO) — Global workplace injury statistics</li>
+        <li>Bureau of Labor Statistics (BLS) — US workplace injuries 2024</li>
+        <li>OSHA — Penalty adjustment guidelines 2025</li>
+        <li>National Safety Council (NSC) — PPE compliance data</li>
+        <li>ISEA — International Safety Equipment Association</li>
+        <li>Trades Union Congress (TUC) — Women's PPE fit survey</li>
+        <li>Ellen MacArthur Foundation — Textile waste and circularity</li>
+      </ul>
+
+      <h3>Company Sources</h3>
+      <ul class="clean">
+        <li>Cintas Corporation — FY2025 Annual Report / Investor Relations</li>
+        <li>UniFirst Corporation — FY2025 Annual Report</li>
+        <li>Reuters — Cintas-UniFirst merger reporting</li>
+        <li>Honeywell, 3M, DuPont, Ansell, MSA Safety — Investor Relations</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Workwear &amp; PPE Market Research &mdash; Week 3: Industry &amp; Company Analysis</p>
+    <p style="margin-top:8px">Research compiled March 2026 &mdash; <a href="https://github.com/jincinga24">github.com/jincinga24</a></p>
+  </footer>
+
+  <!-- ── Sticky nav active state ── -->
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -80% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
